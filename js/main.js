@@ -76,9 +76,27 @@ ANURAJ */
             showValidate(message);
             
         } else {
-			check=false;	
-			swal("Success", "Validation Successful", "success")
-			
+			$.confirm({
+				title: 'Validation Successful!',
+				content: 'Do you want to continue?',
+				buttons: {
+					confirm: function () {
+							$.confirm({
+								title: 'Success!',
+								content: 'Your Data has been submitted!',
+								buttons: {
+									ok: function () {
+										location.reload();
+									}
+								}
+							});
+						
+					},
+					cancel: function () {
+					}
+				}
+			});
+		
 		}
 		check=false;
 		return check;
